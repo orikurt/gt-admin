@@ -1,5 +1,488 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  // partial
+  .main-panel
+    .content-wrapper
+      .row
+        .col-md-12.grid-margin
+          .row
+            .col-12.col-xl-8.mb-4.mb-xl-0
+              h3.font-weight-bold Welcome Aamir
+              h6.font-weight-normal.mb-0
+                | All systems are running smoothly! You have 
+                span.text-primary 3 unread alerts!
+            .col-12.col-xl-4
+              .justify-content-end.d-flex
+                .dropdown.flex-md-grow-1.flex-xl-grow-0
+                  button#dropdownMenuDate2.btn.btn-sm.btn-light.bg-white.dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true')
+                    i.mdi.mdi-calendar
+                    |  Today (10 Jan 2021)
+                  .dropdown-menu.dropdown-menu-right(aria-labelledby='dropdownMenuDate2')
+                    a.dropdown-item(href='#') January - March
+                    a.dropdown-item(href='#') March - June
+                    a.dropdown-item(href='#') June - August
+                    a.dropdown-item(href='#') August - November
+      .row
+        .col-md-6.grid-margin.stretch-card
+          .card.tale-bg
+            .card-people.mt-auto
+              img(src='images/dashboard/people.svg' alt='people')
+              .weather-info
+                .d-flex
+                  div
+                    h2.mb-0.font-weight-normal
+                      i.icon-sun.mr-2
+                      | 31
+                      sup C
+                  .ml-2
+                    h4.location.font-weight-normal Bangalore
+                    h6.font-weight-normal India
+        .col-md-6.grid-margin.transparent
+          .row
+            .col-md-6.mb-4.stretch-card.transparent
+              .card.card-tale
+                .card-body
+                  p.mb-4 Today’s Bookings
+                  p.fs-30.mb-2 4006
+                  p 10.00% (30 days)
+            .col-md-6.mb-4.stretch-card.transparent
+              .card.card-dark-blue
+                .card-body
+                  p.mb-4 Total Bookings
+                  p.fs-30.mb-2 61344
+                  p 22.00% (30 days)
+          .row
+            .col-md-6.mb-4.mb-lg-0.stretch-card.transparent
+              .card.card-light-blue
+                .card-body
+                  p.mb-4 Number of Meetings
+                  p.fs-30.mb-2 34040
+                  p 2.00% (30 days)
+            .col-md-6.stretch-card.transparent
+              .card.card-light-danger
+                .card-body
+                  p.mb-4 Number of Clients
+                  p.fs-30.mb-2 47033
+                  p 0.22% (30 days)
+      .row
+        .col-md-6.grid-margin.stretch-card
+          .card
+            .card-body
+              p.card-title Order Details
+              p.font-weight-500
+                | The total number of sessions within the date range. It is the period time a user is actively engaged with your website, page or app, etc
+              .d-flex.flex-wrap.mb-5
+                .mr-5.mt-3
+                  p.text-muted Order value
+                  h3.text-primary.fs-30.font-weight-medium 12.3k
+                .mr-5.mt-3
+                  p.text-muted Orders
+                  h3.text-primary.fs-30.font-weight-medium 14k
+                .mr-5.mt-3
+                  p.text-muted Users
+                  h3.text-primary.fs-30.font-weight-medium 71.56%
+                .mt-3
+                  p.text-muted Downloads
+                  h3.text-primary.fs-30.font-weight-medium 34040
+              canvas#order-chart
+        .col-md-6.grid-margin.stretch-card
+          .card
+            .card-body
+              .d-flex.justify-content-between
+                p.card-title Sales Report
+                a.text-info(href='#') View all
+              p.font-weight-500
+                | The total number of sessions within the date range. It is the period time a user is actively engaged with your website, page or app, etc
+              #sales-legend.chartjs-legend.mt-4.mb-2
+              canvas#sales-chart
+      .row
+        .col-md-12.grid-margin.stretch-card
+          .card.position-relative
+            .card-body
+              #detailedReports.carousel.slide.detailed-report-carousel.position-static.pt-2(data-ride='carousel')
+                .carousel-inner
+                  .carousel-item.active
+                    .row
+                      .col-md-12.col-xl-3.d-flex.flex-column.justify-content-start
+                        .ml-xl-4.mt-3
+                          p.card-title Detailed Reports
+                          h1.text-primary $34040
+                          h3.font-weight-500.mb-xl-4.text-primary North America
+                          p.mb-2.mb-xl-0
+                            | The total number of sessions within the date range. It is the period time a user is actively engaged with your website, page or app, etc
+                      .col-md-12.col-xl-9
+                        .row
+                          .col-md-6.border-right
+                            .table-responsive.mb-3.mb-md-0.mt-3
+                              table.table.table-borderless.report-table
+                                tbody
+                                  tr
+                                    td.text-muted Illinois
+                                    td.w-100.px-0
+                                      .progress.progress-md.mx-4
+                                        .progress-bar.bg-primary(role='progressbar' style='width: 70%' aria-valuenow='70' aria-valuemin='0' aria-valuemax='100')
+                                    td
+                                      h5.font-weight-bold.mb-0 713
+                                  tr
+                                    td.text-muted Washington
+                                    td.w-100.px-0
+                                      .progress.progress-md.mx-4
+                                        .progress-bar.bg-warning(role='progressbar' style='width: 30%' aria-valuenow='30' aria-valuemin='0' aria-valuemax='100')
+                                    td
+                                      h5.font-weight-bold.mb-0 583
+                                  tr
+                                    td.text-muted Mississippi
+                                    td.w-100.px-0
+                                      .progress.progress-md.mx-4
+                                        .progress-bar.bg-danger(role='progressbar' style='width: 95%' aria-valuenow='95' aria-valuemin='0' aria-valuemax='100')
+                                    td
+                                      h5.font-weight-bold.mb-0 924
+                                  tr
+                                    td.text-muted California
+                                    td.w-100.px-0
+                                      .progress.progress-md.mx-4
+                                        .progress-bar.bg-info(role='progressbar' style='width: 60%' aria-valuenow='60' aria-valuemin='0' aria-valuemax='100')
+                                    td
+                                      h5.font-weight-bold.mb-0 664
+                                  tr
+                                    td.text-muted Maryland
+                                    td.w-100.px-0
+                                      .progress.progress-md.mx-4
+                                        .progress-bar.bg-primary(role='progressbar' style='width: 40%' aria-valuenow='40' aria-valuemin='0' aria-valuemax='100')
+                                    td
+                                      h5.font-weight-bold.mb-0 560
+                                  tr
+                                    td.text-muted Alaska
+                                    td.w-100.px-0
+                                      .progress.progress-md.mx-4
+                                        .progress-bar.bg-danger(role='progressbar' style='width: 75%' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100')
+                                    td
+                                      h5.font-weight-bold.mb-0 793
+                          .col-md-6.mt-3
+                            canvas#north-america-chart
+                            #north-america-legend
+                  .carousel-item
+                    .row
+                      .col-md-12.col-xl-3.d-flex.flex-column.justify-content-start
+                        .ml-xl-4.mt-3
+                          p.card-title Detailed Reports
+                          h1.text-primary $34040
+                          h3.font-weight-500.mb-xl-4.text-primary North America
+                          p.mb-2.mb-xl-0
+                            | The total number of sessions within the date range. It is the period time a user is actively engaged with your website, page or app, etc
+                      .col-md-12.col-xl-9
+                        .row
+                          .col-md-6.border-right
+                            .table-responsive.mb-3.mb-md-0.mt-3
+                              table.table.table-borderless.report-table
+                                tbody
+                                  tr
+                                    td.text-muted Illinois
+                                    td.w-100.px-0
+                                      .progress.progress-md.mx-4
+                                        .progress-bar.bg-primary(role='progressbar' style='width: 70%' aria-valuenow='70' aria-valuemin='0' aria-valuemax='100')
+                                    td
+                                      h5.font-weight-bold.mb-0 713
+                                  tr
+                                    td.text-muted Washington
+                                    td.w-100.px-0
+                                      .progress.progress-md.mx-4
+                                        .progress-bar.bg-warning(role='progressbar' style='width: 30%' aria-valuenow='30' aria-valuemin='0' aria-valuemax='100')
+                                    td
+                                      h5.font-weight-bold.mb-0 583
+                                  tr
+                                    td.text-muted Mississippi
+                                    td.w-100.px-0
+                                      .progress.progress-md.mx-4
+                                        .progress-bar.bg-danger(role='progressbar' style='width: 95%' aria-valuenow='95' aria-valuemin='0' aria-valuemax='100')
+                                    td
+                                      h5.font-weight-bold.mb-0 924
+                                  tr
+                                    td.text-muted California
+                                    td.w-100.px-0
+                                      .progress.progress-md.mx-4
+                                        .progress-bar.bg-info(role='progressbar' style='width: 60%' aria-valuenow='60' aria-valuemin='0' aria-valuemax='100')
+                                    td
+                                      h5.font-weight-bold.mb-0 664
+                                  tr
+                                    td.text-muted Maryland
+                                    td.w-100.px-0
+                                      .progress.progress-md.mx-4
+                                        .progress-bar.bg-primary(role='progressbar' style='width: 40%' aria-valuenow='40' aria-valuemin='0' aria-valuemax='100')
+                                    td
+                                      h5.font-weight-bold.mb-0 560
+                                  tr
+                                    td.text-muted Alaska
+                                    td.w-100.px-0
+                                      .progress.progress-md.mx-4
+                                        .progress-bar.bg-danger(role='progressbar' style='width: 75%' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100')
+                                    td
+                                      h5.font-weight-bold.mb-0 793
+                          .col-md-6.mt-3
+                            canvas#south-america-chart
+                            #south-america-legend
+                a.carousel-control-prev(href='#detailedReports' role='button' data-slide='prev')
+                  span.carousel-control-prev-icon(aria-hidden='true')
+                  span.sr-only Previous
+                a.carousel-control-next(href='#detailedReports' role='button' data-slide='next')
+                  span.carousel-control-next-icon(aria-hidden='true')
+                  span.sr-only Next
+      .row
+        .col-md-7.grid-margin.stretch-card
+          .card
+            .card-body
+              p.card-title.mb-0 Top Products
+              .table-responsive
+                table.table.table-striped.table-borderless
+                  thead
+                    tr
+                      th Product
+                      th Price
+                      th Date
+                      th Status
+                  tbody
+                    tr
+                      td Search Engine Marketing
+                      td.font-weight-bold $362
+                      td 21 Sep 2018
+                      td.font-weight-medium
+                        .badge.badge-success Completed
+                    tr
+                      td Search Engine Optimization
+                      td.font-weight-bold $116
+                      td 13 Jun 2018
+                      td.font-weight-medium
+                        .badge.badge-success Completed
+                    tr
+                      td Display Advertising
+                      td.font-weight-bold $551
+                      td 28 Sep 2018
+                      td.font-weight-medium
+                        .badge.badge-warning Pending
+                    tr
+                      td Pay Per Click Advertising
+                      td.font-weight-bold $523
+                      td 30 Jun 2018
+                      td.font-weight-medium
+                        .badge.badge-warning Pending
+                    tr
+                      td E-Mail Marketing
+                      td.font-weight-bold $781
+                      td 01 Nov 2018
+                      td.font-weight-medium
+                        .badge.badge-danger Cancelled
+                    tr
+                      td Referral Marketing
+                      td.font-weight-bold $283
+                      td 20 Mar 2018
+                      td.font-weight-medium
+                        .badge.badge-warning Pending
+                    tr
+                      td Social media marketing
+                      td.font-weight-bold $897
+                      td 26 Oct 2018
+                      td.font-weight-medium
+                        .badge.badge-success Completed
+        .col-md-5.grid-margin.stretch-card
+          .card
+            .card-body
+              h4.card-title To Do Lists
+              .list-wrapper.pt-2
+                ul.d-flex.flex-column-reverse.todo-list.todo-list-custom
+                  li
+                    .form-check.form-check-flat
+                      label.form-check-label
+                        input.checkbox(type='checkbox')
+                        | 														Meeting with Urban Team
+                    i.remove.ti-close
+                  li.completed
+                    .form-check.form-check-flat
+                      label.form-check-label
+                        input.checkbox(type='checkbox' checked='')
+                        | 														Duplicate a project for new customer
+                    i.remove.ti-close
+                  li
+                    .form-check.form-check-flat
+                      label.form-check-label
+                        input.checkbox(type='checkbox')
+                        | 														Project meeting with CEO
+                    i.remove.ti-close
+                  li.completed
+                    .form-check.form-check-flat
+                      label.form-check-label
+                        input.checkbox(type='checkbox' checked='')
+                        | 														Follow up of team zilla
+                    i.remove.ti-close
+                  li
+                    .form-check.form-check-flat
+                      label.form-check-label
+                        input.checkbox(type='checkbox')
+                        | 														Level up for Antony
+                    i.remove.ti-close
+              .add-items.d-flex.mb-0.mt-2
+                input.form-control.todo-list-input(type='text' placeholder='Add new task')
+                button.add.btn.btn-icon.text-primary.todo-list-add-btn.bg-transparent
+                  i.icon-circle-plus
+      .row
+        .col-md-4.stretch-card.grid-margin
+          .card
+            .card-body
+              p.card-title.mb-0 Projects
+              .table-responsive
+                table.table.table-borderless
+                  thead
+                    tr
+                      th.pl-0.pb-2.border-bottom Places
+                      th.border-bottom.pb-2 Orders
+                      th.border-bottom.pb-2 Users
+                  tbody
+                    tr
+                      td.pl-0 Kentucky
+                      td
+                        p.mb-0
+                          span.font-weight-bold.mr-2 65
+                          | (2.15%)
+                      td.text-muted 65
+                    tr
+                      td.pl-0 Ohio
+                      td
+                        p.mb-0
+                          span.font-weight-bold.mr-2 54
+                          | (3.25%)
+                      td.text-muted 51
+                    tr
+                      td.pl-0 Nevada
+                      td
+                        p.mb-0
+                          span.font-weight-bold.mr-2 22
+                          | (2.22%)
+                      td.text-muted 32
+                    tr
+                      td.pl-0 North Carolina
+                      td
+                        p.mb-0
+                          span.font-weight-bold.mr-2 46
+                          | (3.27%)
+                      td.text-muted 15
+                    tr
+                      td.pl-0 Montana
+                      td
+                        p.mb-0
+                          span.font-weight-bold.mr-2 17
+                          | (1.25%)
+                      td.text-muted 25
+                    tr
+                      td.pl-0 Nevada
+                      td
+                        p.mb-0
+                          span.font-weight-bold.mr-2 52
+                          | (3.11%)
+                      td.text-muted 71
+                    tr
+                      td.pl-0.pb-0 Louisiana
+                      td.pb-0
+                        p.mb-0
+                          span.font-weight-bold.mr-2 25
+                          | (1.32%)
+                      td.pb-0 14
+        .col-md-4.stretch-card.grid-margin
+          .row
+            .col-md-12.grid-margin.stretch-card
+              .card
+                .card-body
+                  p.card-title Charts
+                  .charts-data
+                    .mt-3
+                      p.mb-0 Data 1
+                      .d-flex.justify-content-between.align-items-center
+                        .progress.progress-md.flex-grow-1.mr-4
+                          .progress-bar.bg-inf0(role='progressbar' style='width: 95%' aria-valuenow='95' aria-valuemin='0' aria-valuemax='100')
+                        p.mb-0 5k
+                    .mt-3
+                      p.mb-0 Data 2
+                      .d-flex.justify-content-between.align-items-center
+                        .progress.progress-md.flex-grow-1.mr-4
+                          .progress-bar.bg-info(role='progressbar' style='width: 35%' aria-valuenow='35' aria-valuemin='0' aria-valuemax='100')
+                        p.mb-0 1k
+                    .mt-3
+                      p.mb-0 Data 3
+                      .d-flex.justify-content-between.align-items-center
+                        .progress.progress-md.flex-grow-1.mr-4
+                          .progress-bar.bg-info(role='progressbar' style='width: 48%' aria-valuenow='48' aria-valuemin='0' aria-valuemax='100')
+                        p.mb-0 992
+                    .mt-3
+                      p.mb-0 Data 4
+                      .d-flex.justify-content-between.align-items-center
+                        .progress.progress-md.flex-grow-1.mr-4
+                          .progress-bar.bg-info(role='progressbar' style='width: 25%' aria-valuenow='25' aria-valuemin='0' aria-valuemax='100')
+                        p.mb-0 687
+            .col-md-12.stretch-card.grid-margin.grid-margin-md-0
+              .card.data-icon-card-primary
+                .card-body
+                  p.card-title.text-white Number of Meetings
+                  .row
+                    .col-8.text-white
+                      h3 34040
+                      p.text-white.font-weight-500.mb-0
+                        | The total number of sessions within the date range.It is calculated as the sum .
+                    .col-4.background-icon
+        .col-md-4.stretch-card.grid-margin
+          .card
+            .card-body
+              p.card-title Notifications
+              ul.icon-data-list
+                li
+                  .d-flex
+                    img(src='images/faces/face1.jpg' alt='user')
+                    div
+                      p.text-info.mb-1 Isabella Becker
+                      p.mb-0 Sales dashboard have been created
+                      small 9:30 am
+                li
+                  .d-flex
+                    img(src='images/faces/face2.jpg' alt='user')
+                    div
+                      p.text-info.mb-1 Adam Warren
+                      p.mb-0 You have done a great job #TW111
+                      small 10:30 am
+                li
+                  .d-flex
+                    img(src='images/faces/face3.jpg' alt='user')
+                    div
+                      p.text-info.mb-1 Leonard Thornton
+                      p.mb-0 Sales dashboard have been created
+                      small 11:30 am
+                li
+                  .d-flex
+                    img(src='images/faces/face4.jpg' alt='user')
+                    div
+                      p.text-info.mb-1 George Morrison
+                      p.mb-0 Sales dashboard have been created
+                      small 8:50 am
+                li
+                  .d-flex
+                    img(src='images/faces/face5.jpg' alt='user')
+                    div
+                      p.text-info.mb-1 Ryan Cortez
+                      p.mb-0 Herbs are fun and easy to grow.
+                      small 9:00 am
+      .row
+        .col-md-12.grid-margin.stretch-card
+          .card
+            .card-body
+              p.card-title Advanced Table
+              .row
+                .col-12
+                  .table-responsive
+                    table#example.display.expandable-table(style='width:100%')
+                      thead
+                        tr
+                          th Quote#
+                          th Product
+                          th Business type
+                          th Policy holder
+                          th Premium
+                          th Status
+                          th Updated at
+                          th

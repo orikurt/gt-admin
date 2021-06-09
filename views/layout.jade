@@ -1,7 +1,348 @@
 doctype html
-html
+html(lang='en')
   head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    // Required meta tags
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    title GameTime Admin
+    // plugins:css
+    link(rel='stylesheet' href='vendors/feather/feather.css')
+    link(rel='stylesheet' href='vendors/ti-icons/css/themify-icons.css')
+    link(rel='stylesheet' href='vendors/css/vendor.bundle.base.css')
+    // endinject
+    // Plugin css for this page
+    link(rel='stylesheet' href='vendors/datatables.net-bs4/dataTables.bootstrap4.css')
+    link(rel='stylesheet' href='vendors/ti-icons/css/themify-icons.css')
+    link(rel='stylesheet' type='text/css' href='js/select.dataTables.min.css')
+    // End plugin css for this page
+    // inject:css
+    link(rel='stylesheet' href='css/vertical-layout-light/style.css')
+    // endinject
+    link(rel='shortcut icon' href='images/favicon.png')
   body
+    .container-scroller
+      // partial:partials/_navbar.html
+      nav.navbar.col-lg-12.col-12.p-0.fixed-top.d-flex.flex-row
+        .text-center.navbar-brand-wrapper.d-flex.align-items-center.justify-content-center
+          a.navbar-brand.brand-logo.mr-5(href='index.html')
+            img.mr-2(src='images/gametime-logo.png' alt='logo')
+          a.navbar-brand.brand-logo-mini(href='index.html')
+            img.mr-2(src='images/gametime-logo.png' alt='logo')
+        .navbar-menu-wrapper.d-flex.align-items-center.justify-content-end
+          button.navbar-toggler.navbar-toggler.align-self-center(type='button' data-toggle='minimize')
+            span.icon-menu
+          ul.navbar-nav.mr-lg-2
+            li.nav-item.nav-search.d-none.d-lg-block
+              .input-group
+                #navbar-search-icon.input-group-prepend.hover-cursor
+                  span#search.input-group-text
+                    i.icon-search
+                input#navbar-search-input.form-control(type='text' placeholder='Search now' aria-label='search' aria-describedby='search')
+          ul.navbar-nav.navbar-nav-right
+            li.nav-item.dropdown
+              a#notificationDropdown.nav-link.count-indicator.dropdown-toggle(href='#' data-toggle='dropdown')
+                i.icon-bell.mx-0
+                span.count
+              .dropdown-menu.dropdown-menu-right.navbar-dropdown.preview-list(aria-labelledby='notificationDropdown')
+                p.mb-0.font-weight-normal.float-left.dropdown-header Notifications
+                a.dropdown-item.preview-item
+                  .preview-thumbnail
+                    .preview-icon.bg-success
+                      i.ti-info-alt.mx-0
+                  .preview-item-content
+                    h6.preview-subject.font-weight-normal Application Error
+                    p.font-weight-light.small-text.mb-0.text-muted
+                      | Just now
+                a.dropdown-item.preview-item
+                  .preview-thumbnail
+                    .preview-icon.bg-warning
+                      i.ti-settings.mx-0
+                  .preview-item-content
+                    h6.preview-subject.font-weight-normal Settings
+                    p.font-weight-light.small-text.mb-0.text-muted
+                      | Private message
+                a.dropdown-item.preview-item
+                  .preview-thumbnail
+                    .preview-icon.bg-info
+                      i.ti-user.mx-0
+                  .preview-item-content
+                    h6.preview-subject.font-weight-normal New user registration
+                    p.font-weight-light.small-text.mb-0.text-muted
+                      | 2 days ago
+            li.nav-item.nav-profile.dropdown
+              a#profileDropdown.nav-link.dropdown-toggle(href='#' data-toggle='dropdown')
+                img(src='images/faces/face28.jpg' alt='profile')
+              .dropdown-menu.dropdown-menu-right.navbar-dropdown(aria-labelledby='profileDropdown')
+                a.dropdown-item
+                  i.ti-settings.text-primary
+                  |                 Settings
+                a.dropdown-item
+                  i.ti-power-off.text-primary
+                  |                 Logout
+            li.nav-item.nav-settings.d-none.d-lg-flex
+              a.nav-link(href='#')
+                i.icon-ellipsis
+          button.navbar-toggler.navbar-toggler-right.d-lg-none.align-self-center(type='button' data-toggle='offcanvas')
+            span.icon-menu
+      // partial
+      .container-fluid.page-body-wrapper
+        // partial:partials/_settings-panel.html
+        .theme-setting-wrapper
+          #settings-trigger
+            i.ti-settings
+          #theme-settings.settings-panel
+            i.settings-close.ti-close
+            p.settings-heading SIDEBAR SKINS
+            #sidebar-light-theme.sidebar-bg-options.selected
+              .img-ss.rounded-circle.bg-light.border.mr-3
+              | Light
+            #sidebar-dark-theme.sidebar-bg-options
+              .img-ss.rounded-circle.bg-dark.border.mr-3
+              | Dark
+            p.settings-heading.mt-2 HEADER SKINS
+            .color-tiles.mx-0.px-4
+              .tiles.success
+              .tiles.warning
+              .tiles.danger
+              .tiles.info
+              .tiles.dark
+              .tiles.default
+        #right-sidebar.settings-panel
+          i.settings-close.ti-close
+          ul#setting-panel.nav.nav-tabs.border-top(role='tablist')
+            li.nav-item
+              a#todo-tab.nav-link.active(data-toggle='tab' href='#todo-section' role='tab' aria-controls='todo-section' aria-expanded='true') TO DO LIST
+            li.nav-item
+              a#chats-tab.nav-link(data-toggle='tab' href='#chats-section' role='tab' aria-controls='chats-section') CHATS
+          #setting-content.tab-content
+            #todo-section.tab-pane.fade.show.active.scroll-wrapper(role='tabpanel' aria-labelledby='todo-section')
+              .add-items.d-flex.px-3.mb-0
+                form.form.w-100
+                  .form-group.d-flex
+                    input.form-control.todo-list-input(type='text' placeholder='Add To-do')
+                    button#add-task.add.btn.btn-primary.todo-list-add-btn(type='submit') Add
+              .list-wrapper.px-3
+                ul.d-flex.flex-column-reverse.todo-list
+                  li
+                    .form-check
+                      label.form-check-label
+                        input.checkbox(type='checkbox')
+                        |                       Team review meeting at 3.00 PM
+                    i.remove.ti-close
+                  li
+                    .form-check
+                      label.form-check-label
+                        input.checkbox(type='checkbox')
+                        |                       Prepare for presentation
+                    i.remove.ti-close
+                  li
+                    .form-check
+                      label.form-check-label
+                        input.checkbox(type='checkbox')
+                        |                       Resolve all the low priority tickets due today
+                    i.remove.ti-close
+                  li.completed
+                    .form-check
+                      label.form-check-label
+                        input.checkbox(type='checkbox' checked='')
+                        |                       Schedule meeting for next week
+                    i.remove.ti-close
+                  li.completed
+                    .form-check
+                      label.form-check-label
+                        input.checkbox(type='checkbox' checked='')
+                        |                       Project review
+                    i.remove.ti-close
+              h4.px-3.text-muted.mt-5.font-weight-light.mb-0 Events
+              .events.pt-4.px-3
+                .wrapper.d-flex.mb-2
+                  i.ti-control-record.text-primary.mr-2
+                  span Feb 11 2018
+                p.mb-0.font-weight-thin.text-gray Creating component page build a js
+                p.text-gray.mb-0 The total number of sessions
+              .events.pt-4.px-3
+                .wrapper.d-flex.mb-2
+                  i.ti-control-record.text-primary.mr-2
+                  span Feb 7 2018
+                p.mb-0.font-weight-thin.text-gray Meeting with Alisa
+                p.text-gray.mb-0 Call Sarah Graves
+            // To do section tab ends
+            #chats-section.tab-pane.fade(role='tabpanel' aria-labelledby='chats-section')
+              .d-flex.align-items-center.justify-content-between.border-bottom
+                p.settings-heading.border-top-0.mb-3.pl-3.pt-0.border-bottom-0.pb-0 Friends
+                small.settings-heading.border-top-0.mb-3.pt-0.border-bottom-0.pb-0.pr-3.font-weight-normal See All
+              ul.chat-list
+                li.list.active
+                  .profile
+                    img(src='images/faces/face1.jpg' alt='image')
+                    span.online
+                  .info
+                    p Thomas Douglas
+                    p Available
+                  small.text-muted.my-auto 19 min
+                li.list
+                  .profile
+                    img(src='images/faces/face2.jpg' alt='image')
+                    span.offline
+                  .info
+                    .wrapper.d-flex
+                      p Catherine
+                    p Away
+                  .badge.badge-success.badge-pill.my-auto.mx-2 4
+                  small.text-muted.my-auto 23 min
+                li.list
+                  .profile
+                    img(src='images/faces/face3.jpg' alt='image')
+                    span.online
+                  .info
+                    p Daniel Russell
+                    p Available
+                  small.text-muted.my-auto 14 min
+                li.list
+                  .profile
+                    img(src='images/faces/face4.jpg' alt='image')
+                    span.offline
+                  .info
+                    p James Richardson
+                    p Away
+                  small.text-muted.my-auto 2 min
+                li.list
+                  .profile
+                    img(src='images/faces/face5.jpg' alt='image')
+                    span.online
+                  .info
+                    p Madeline Kennedy
+                    p Available
+                  small.text-muted.my-auto 5 min
+                li.list
+                  .profile
+                    img(src='images/faces/face6.jpg' alt='image')
+                    span.online
+                  .info
+                    p Sarah Graves
+                    p Available
+                  small.text-muted.my-auto 47 min
+            // chat tab ends
+            // partial
+            // partial:partials/_sidebar.html
+            nav#sidebar.sidebar.sidebar-offcanvas
+              ul.nav
+                li.nav-item
+                  a.nav-link(href='index.html')
+                    i.icon-grid.menu-icon
+                    span.menu-title Dashboard
+                li.nav-item
+                  a.nav-link(href='pages/users/users.html')
+                    i.icon-head.menu-icon
+                    span.menu-title Users
+                li.nav-item
+                  a.nav-link(data-toggle='collapse' href='#ui-basic' aria-expanded='false' aria-controls='ui-basic')
+                    i.icon-layout.menu-icon
+                    span.menu-title UI Elements
+                    i.menu-arrow
+                  #ui-basic.collapse
+                    ul.nav.flex-column.sub-menu
+                      li.nav-item
+                        a.nav-link(href='pages/ui-features/buttons.html') Buttons
+                      li.nav-item
+                        a.nav-link(href='pages/ui-features/dropdowns.html') Dropdowns
+                      li.nav-item
+                        a.nav-link(href='pages/ui-features/typography.html') Typography
+                li.nav-item
+                  a.nav-link(data-toggle='collapse' href='#form-elements' aria-expanded='false' aria-controls='form-elements')
+                    i.icon-columns.menu-icon
+                    span.menu-title Form elements
+                    i.menu-arrow
+                  #form-elements.collapse
+                    ul.nav.flex-column.sub-menu
+                      li.nav-item
+                        a.nav-link(href='pages/forms/basic_elements.html') Basic Elements
+                li.nav-item
+                  a.nav-link(data-toggle='collapse' href='#charts' aria-expanded='false' aria-controls='charts')
+                    i.icon-bar-graph.menu-icon
+                    span.menu-title Charts
+                    i.menu-arrow
+                  #charts.collapse
+                    ul.nav.flex-column.sub-menu
+                      li.nav-item
+                        a.nav-link(href='pages/charts/chartjs.html') ChartJs
+                li.nav-item
+                  a.nav-link(data-toggle='collapse' href='#tables' aria-expanded='false' aria-controls='tables')
+                    i.icon-grid-2.menu-icon
+                    span.menu-title Tables
+                    i.menu-arrow
+                  #tables.collapse
+                    ul.nav.flex-column.sub-menu
+                      li.nav-item
+                        a.nav-link(href='pages/tables/basic-table.html') Basic table
+                li.nav-item
+                  a.nav-link(data-toggle='collapse' href='#icons' aria-expanded='false' aria-controls='icons')
+                    i.icon-contract.menu-icon
+                    span.menu-title Icons
+                    i.menu-arrow
+                  #icons.collapse
+                    ul.nav.flex-column.sub-menu
+                      li.nav-item
+                        a.nav-link(href='pages/icons/mdi.html') Mdi icons
+                li.nav-item
+                  a.nav-link(data-toggle='collapse' href='#auth' aria-expanded='false' aria-controls='auth')
+                    i.icon-head.menu-icon
+                    span.menu-title User Pages
+                    i.menu-arrow
+                  #auth.collapse
+                    ul.nav.flex-column.sub-menu
+                      li.nav-item
+                        a.nav-link(href='pages/samples/login.html')  Login 
+                      li.nav-item
+                        a.nav-link(href='pages/samples/register.html')  Register 
+                li.nav-item
+                  a.nav-link(data-toggle='collapse' href='#error' aria-expanded='false' aria-controls='error')
+                    i.icon-ban.menu-icon
+                    span.menu-title Error pages
+                    i.menu-arrow
+                  #error.collapse
+                    ul.nav.flex-column.sub-menu
+                      li.nav-item
+                        a.nav-link(href='pages/samples/error-404.html')  404 
+                      li.nav-item
+                        a.nav-link(href='pages/samples/error-500.html')  500 
+                li.nav-item
+                  a.nav-link(href='pages/documentation/documentation.html')
+                    i.icon-paper.menu-icon
+                    span.menu-title Documentation
     block content
+    // content-wrapper ends
+    // partial:partials/_footer.html
+    footer.footer
+      .d-sm-flex.justify-content-center.justify-content-sm-between
+        span.text-muted.text-center.text-sm-left.d-block.d-sm-inline-block
+          | Copyright © 2021.  Premium 
+          a(href='https://www.bootstrapdash.com/' target='_blank') Bootstrap admin template
+          |  from BootstrapDash. All rights reserved.
+        span.float-none.float-sm-right.d-block.mt-1.mt-sm-0.text-center
+          | Hand-crafted & made with 
+          i.ti-heart.text-danger.ml-1
+    // partial
+    // main-panel ends
+    // page-body-wrapper ends
+    // container-scroller
+    // plugins:js
+    script(src='vendors/js/vendor.bundle.base.js')
+    // endinject
+    // Plugin js for this page
+    script(src='vendors/chart.js/Chart.min.js')
+    script(src='vendors/datatables.net/jquery.dataTables.js')
+    script(src='vendors/datatables.net-bs4/dataTables.bootstrap4.js')
+    script(src='js/dataTables.select.min.js')
+    // End plugin js for this page
+    // inject:js
+    script(src='js/off-canvas.js')
+    script(src='js/hoverable-collapse.js')
+    script(src='js/template.js')
+    script(src='js/settings.js')
+    script(src='js/todolist.js')
+    // endinject
+    // Custom js for this page
+    script(src='js/dashboard.js')
+    script(src='js/Chart.roundedBarCharts.js')
+    // End custom js for this page
