@@ -223,94 +223,96 @@ html(lang='en')
                     p Available
                   small.text-muted.my-auto 47 min
             // chat tab ends
-            // partial
-            // partial:partials/_sidebar.html
-            nav#sidebar.sidebar.sidebar-offcanvas
-              ul.nav
-                li.nav-item
-                  a.nav-link(href='index.html')
-                    i.icon-grid.menu-icon
-                    span.menu-title Dashboard
-                li.nav-item
-                  a.nav-link(href='pages/users/users.html')
-                    i.icon-head.menu-icon
-                    span.menu-title Users
-                li.nav-item
-                  a.nav-link(data-toggle='collapse' href='#ui-basic' aria-expanded='false' aria-controls='ui-basic')
-                    i.icon-layout.menu-icon
-                    span.menu-title UI Elements
-                    i.menu-arrow
-                  #ui-basic.collapse
-                    ul.nav.flex-column.sub-menu
-                      li.nav-item
-                        a.nav-link(href='pages/ui-features/buttons.html') Buttons
-                      li.nav-item
-                        a.nav-link(href='pages/ui-features/dropdowns.html') Dropdowns
-                      li.nav-item
-                        a.nav-link(href='pages/ui-features/typography.html') Typography
-                li.nav-item
-                  a.nav-link(data-toggle='collapse' href='#form-elements' aria-expanded='false' aria-controls='form-elements')
-                    i.icon-columns.menu-icon
-                    span.menu-title Form elements
-                    i.menu-arrow
-                  #form-elements.collapse
-                    ul.nav.flex-column.sub-menu
-                      li.nav-item
-                        a.nav-link(href='pages/forms/basic_elements.html') Basic Elements
-                li.nav-item
-                  a.nav-link(data-toggle='collapse' href='#charts' aria-expanded='false' aria-controls='charts')
-                    i.icon-bar-graph.menu-icon
-                    span.menu-title Charts
-                    i.menu-arrow
-                  #charts.collapse
-                    ul.nav.flex-column.sub-menu
-                      li.nav-item
-                        a.nav-link(href='pages/charts/chartjs.html') ChartJs
-                li.nav-item
-                  a.nav-link(data-toggle='collapse' href='#tables' aria-expanded='false' aria-controls='tables')
-                    i.icon-grid-2.menu-icon
-                    span.menu-title Tables
-                    i.menu-arrow
-                  #tables.collapse
-                    ul.nav.flex-column.sub-menu
-                      li.nav-item
-                        a.nav-link(href='pages/tables/basic-table.html') Basic table
-                li.nav-item
-                  a.nav-link(data-toggle='collapse' href='#icons' aria-expanded='false' aria-controls='icons')
-                    i.icon-contract.menu-icon
-                    span.menu-title Icons
-                    i.menu-arrow
-                  #icons.collapse
-                    ul.nav.flex-column.sub-menu
-                      li.nav-item
-                        a.nav-link(href='pages/icons/mdi.html') Mdi icons
-                li.nav-item
-                  a.nav-link(data-toggle='collapse' href='#auth' aria-expanded='false' aria-controls='auth')
-                    i.icon-head.menu-icon
-                    span.menu-title User Pages
-                    i.menu-arrow
-                  #auth.collapse
-                    ul.nav.flex-column.sub-menu
-                      li.nav-item
-                        a.nav-link(href='pages/samples/login.html')  Login 
-                      li.nav-item
-                        a.nav-link(href='pages/samples/register.html')  Register 
-                li.nav-item
-                  a.nav-link(data-toggle='collapse' href='#error' aria-expanded='false' aria-controls='error')
-                    i.icon-ban.menu-icon
-                    span.menu-title Error pages
-                    i.menu-arrow
-                  #error.collapse
-                    ul.nav.flex-column.sub-menu
-                      li.nav-item
-                        a.nav-link(href='pages/samples/error-404.html')  404 
-                      li.nav-item
-                        a.nav-link(href='pages/samples/error-500.html')  500 
-                li.nav-item
-                  a.nav-link(href='pages/documentation/documentation.html')
-                    i.icon-paper.menu-icon
-                    span.menu-title Documentation
-    block content
+        // partial
+        // partial:partials/_sidebar.html
+        nav#sidebar.sidebar.sidebar-offcanvas
+          ul.nav
+            li.nav-item
+              a.nav-link(href='index.html')
+                i.icon-grid.menu-icon
+                span.menu-title Dashboard
+            li.nav-item
+              a.nav-link(href='pages/users/users.html')
+                i.icon-head.menu-icon
+                span.menu-title Users
+            li.nav-item
+              a.nav-link(data-toggle='collapse' href='#ui-basic' aria-expanded='false' aria-controls='ui-basic')
+                i.icon-layout.menu-icon
+                span.menu-title UI Elements
+                i.menu-arrow
+              #ui-basic.collapse
+                ul.nav.flex-column.sub-menu
+                  li.nav-item
+                    a.nav-link(href='pages/ui-features/buttons.html') Buttons
+                  li.nav-item
+                    a.nav-link(href='pages/ui-features/dropdowns.html') Dropdowns
+                  li.nav-item
+                    a.nav-link(href='pages/ui-features/typography.html') Typography
+            li.nav-item
+              a.nav-link(data-toggle='collapse' href='#form-elements' aria-expanded='false' aria-controls='form-elements')
+                i.icon-columns.menu-icon
+                span.menu-title Form elements
+                i.menu-arrow
+              #form-elements.collapse
+                ul.nav.flex-column.sub-menu
+                  li.nav-item
+                    a.nav-link(href='pages/forms/basic_elements.html') Basic Elements
+            li.nav-item
+              a.nav-link(data-toggle='collapse' href='#charts' aria-expanded='false' aria-controls='charts')
+                i.icon-bar-graph.menu-icon
+                span.menu-title Charts
+                i.menu-arrow
+              #charts.collapse
+                ul.nav.flex-column.sub-menu
+                  li.nav-item
+                    a.nav-link(href='pages/charts/chartjs.html') ChartJs
+            li.nav-item
+              a.nav-link(data-toggle='collapse' href='#tables' aria-expanded='false' aria-controls='tables')
+                i.icon-grid-2.menu-icon
+                span.menu-title Tables
+                i.menu-arrow
+              #tables.collapse
+                ul.nav.flex-column.sub-menu
+                  li.nav-item
+                    a.nav-link(href='pages/tables/basic-table.html') Basic table
+            li.nav-item
+              a.nav-link(data-toggle='collapse' href='#icons' aria-expanded='false' aria-controls='icons')
+                i.icon-contract.menu-icon
+                span.menu-title Icons
+                i.menu-arrow
+              #icons.collapse
+                ul.nav.flex-column.sub-menu
+                  li.nav-item
+                    a.nav-link(href='pages/icons/mdi.html') Mdi icons
+            li.nav-item
+              a.nav-link(data-toggle='collapse' href='#auth' aria-expanded='false' aria-controls='auth')
+                i.icon-head.menu-icon
+                span.menu-title User Pages
+                i.menu-arrow
+              #auth.collapse
+                ul.nav.flex-column.sub-menu
+                  li.nav-item
+                    a.nav-link(href='pages/samples/login.html')  Login 
+                  li.nav-item
+                    a.nav-link(href='pages/samples/register.html')  Register 
+            li.nav-item
+              a.nav-link(data-toggle='collapse' href='#error' aria-expanded='false' aria-controls='error')
+                i.icon-ban.menu-icon
+                span.menu-title Error pages
+                i.menu-arrow
+              #error.collapse
+                ul.nav.flex-column.sub-menu
+                  li.nav-item
+                    a.nav-link(href='pages/samples/error-404.html')  404 
+                  li.nav-item
+                    a.nav-link(href='pages/samples/error-500.html')  500 
+            li.nav-item
+              a.nav-link(href='pages/documentation/documentation.html')
+                i.icon-paper.menu-icon
+                span.menu-title Documentation
+        .main-panel
+          .content-wrapper
+            block content
     // content-wrapper ends
     // partial:partials/_footer.html
     footer.footer
